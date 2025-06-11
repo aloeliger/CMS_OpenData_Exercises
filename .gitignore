@@ -1,3 +1,4 @@
 *~
 *.root
 .snakemake
+.ipynb_checkpoints
