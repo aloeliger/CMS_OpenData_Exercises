@@ -1,5 +1,7 @@
 # CMS Open Data Anomaly Detection Exercises
 
+These exercises were designed to be used for student exercises in the AD4HEP workshop, June 2025, Nevis Labs, Columbia University.
+
 These exercises are designed to be as light on requirements as possible. In general, if you have a linux system with python on it, and a way to look at a Jupyter notebook, you should be able to run these exercises.
 
 I have provided a quick setup script, `setup.sh`.
@@ -24,6 +26,8 @@ Jupyter should provide you a local host link you can go to. Open that on your ma
 I have included several basic converter scripts here designed to be used alongside Snakemake. If for any reason, you need to recreate the files in `data/`, you will need to be on an XRootD capable machine/account. The files can be created via a simple snakemake command (but may take some time). The ROOT files can be removed later.
 
 ### Note:
+
+I should very much cite _Hands-On Machine Learning with Scikit-Learn and TensorFlow_ by by Aurélien Géron (2017,  O'Reilly Media, Inc. ISBN: 9781491962299) which is an excellent resource for machine learning and neural networks (especially for beginners), and was crucial in making the GAN Anomaly Detection loop, which I always need to look up again. Please see the repository for the book's code [here](https://github.com/ageron/handson-ml2/tree/master). Note that all work in that repository is under an [Apache 2 license](https://www.apache.org/licenses/LICENSE-2.0).
 
 The data files for this exercise will take up about 5 Gb. The environment will take approximately 3 Gb.
 
