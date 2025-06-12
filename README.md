@@ -22,12 +22,14 @@ jupyter notebook --no-browser --port <the same random 4 digit number as before>
 
 Jupyter should provide you a local host link you can go to. Open that on your machine, the port forwarding should allow you to access the notebook on the remote machine.
 
-### data file creation
+### Data File Creation
 I have included several basic converter scripts here designed to be used alongside Snakemake. If for any reason, you need to recreate the files in `data/`, you will need to be on an XRootD capable machine/account. The files can be created via a simple snakemake command (but may take some time). The ROOT files can be removed later.
 
 ### Note:
 
 I should very much cite _Hands-On Machine Learning with Scikit-Learn and TensorFlow_ by by Aurélien Géron (2017,  O'Reilly Media, Inc. ISBN: 9781491962299) which is an excellent resource for machine learning and neural networks (especially for beginners), and was crucial in making the GAN Anomaly Detection loop, which I always need to look up again. Please see the repository for the book's code [here](https://github.com/ageron/handson-ml2/tree/master). Note that all work in that repository is under an [Apache 2 license](https://www.apache.org/licenses/LICENSE-2.0).
+
+If you are a beginner with machine learning, the exercises here make use of [SciKit-Learn](https://scikit-learn.org/stable/) (Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011), and [Tensorflow/Keras](https://keras.io/). I highly recommend familiarizing yourself with the libraries and APIs they provide. SciKit-Learn is under a BSD 3-Clause License, and keras is under an Apache 2 license.
 
 The data files for this exercise will take up about 5 Gb. The environment will take approximately 3 Gb.
 
