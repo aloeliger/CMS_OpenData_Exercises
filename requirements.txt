@@ -12,3 +12,6 @@ rich
 uproot
 argparse
 pulp<2.8.0
+awkward
+torch
+torch-geometric
