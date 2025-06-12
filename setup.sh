@@ -6,8 +6,8 @@ source cms_opendata_exercises_env/bin/activate
 python3 -m pip install -r requirements.txt
 
 echo "Setting up data files..."
-tar -xzvf data/basic_files.tar.gz data/basic_files
-tar -xzvf data/intermediate_files.tar.gz data/intermediate_files
-tar -xzvf data/advanced_files.tar.gz data/advanced_files
+tar -xzvf data/basic_files.tar.gz --directory data/
+tar -xzvf data/intermediate_files.tar.gz --directory data/intermediate_files
+tar -xzvf data/advanced_files.tar.gz --directory data/advanced_files
 
 echo "Done!"
