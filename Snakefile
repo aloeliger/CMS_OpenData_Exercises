@@ -9,7 +9,12 @@ rule all:
       "data/intermediate_files/JetHTIntermediateData.h5",
       "data/intermediate_files/TTBarIntermediateData.h5",
       "data/intermediate_files/RadionIntermediateData.h5",
-      "data/intermediate_files/SoftQCDIntermediateData.h5"
+      "data/intermediate_files/SoftQCDIntermediateData.h5",
+      "data/advanced_files/ZeroBiasAdvancedData.h5",
+      "data/advanced_files/JetHTAdvancedData.h5",
+      "data/advanced_files/TTBarAdvancedData.h5",
+      "data/advanced_files/RadionAdvancedData.h5",
+      "data/advanced_files/SoftQCDAdvancedData.h5",
 
 rule clean:
    shell:
@@ -176,3 +181,55 @@ rule softqcd_to_intermediate:
    shell:
       "python3 convert_nano_to_intermediate_file.py data/intermediate_files/ SoftQCDIntermediateData.h5 QCD_pt_5_10_nano_1.root QCD_pt_5_10_nano_2.root QCD_pt_10_15_nano_1.root QCD_pt_10_15_nano_2.root --limit_events=100000"
 
+#
+# Advanced h5s
+#
+
+rule zerobias_to_advanced:
+   input:
+      "nano_data2016_1-1.root",
+      "nano_data2016_1-2.root",
+      "nano_data2016_10.root",
+   output:
+      "data/advanced_files/ZeroBiasAdvancedData.h5"
+   shell:
+      "python3 convert_nano_to_advanced_file.py data/advanced_files/ ZeroBiasAdvancedData.h5 nano_data2016_1-1.root nano_data2016_1-2.root nano_data2016_10.root --limit_events=64000"
+	
+rule jetht_to_advanced:
+   input:
+      "jet_nano_data2016_1-1.root",
+      "jet_nano_data2016_1-10.root",
+      "jet_nano_data2016_1-5.root"
+   output:
+      "data/advanced_files/JetHTAdvancedData.h5"
+   shell:
+      "python3 convert_nano_to_advanced_file.py data/advanced_files/ JetHTAdvancedData.h5 jet_nano_data2016_1-1.root jet_nano_data2016_1-10.root jet_nano_data2016_1-5.root --limit_events=64000"
+
+rule ttbar_to_advanced:
+   input:
+      "ttbar_nano_1.root",
+      "ttbar_nano_2.root",
+      "ttbar_nano_3.root",
+   output:
+      "data/advanced_files/TTBarAdvancedData.h5"
+   shell:
+      "python3 convert_nano_to_advanced_file.py data/advanced_files/ TTBarAdvancedData.h5 ttbar_nano_1.root ttbar_nano_2.root ttbar_nano_3.root --limit_events=64000"
+
+rule radion_to_advanced:
+   input:
+      "radion_nano.root"
+   output:
+      "data/advanced_files/RadionAdvancedData.h5"
+   shell:
+      "python3 convert_nano_to_advanced_file.py data/advanced_files/ RadionAdvancedData.h5 radion_nano.root --limit_events=64000"
+
+rule softqcd_to_advanced:
+   input:
+      "QCD_pt_5_10_nano_1.root",
+      "QCD_pt_5_10_nano_2.root",
+      "QCD_pt_10_15_nano_1.root",
+      "QCD_pt_10_15_nano_2.root"
+   output:
+      "data/advanced_files/SoftQCDAdvancedData.h5"
+   shell:
+      "python3 convert_nano_to_advanced_file.py data/advanced_files/ SoftQCDAdvancedData.h5 QCD_pt_5_10_nano_1.root QCD_pt_5_10_nano_2.root QCD_pt_10_15_nano_1.root QCD_pt_10_15_nano_2.root --limit_events=64000"
