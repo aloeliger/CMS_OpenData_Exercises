@@ -25,6 +25,8 @@ I have included several basic converter scripts here designed to be used alongsi
 
 ### Note:
 
+The data files for this exercise will take up about 5 Gb. The environment will take approximately 3 Gb.
+
 All exercises here are done with 2016 CMS open data. [See the CERN open data portal for more information](https://opendata.cern.ch/)
 
 In particular, I use:
