@@ -15,6 +15,8 @@ rule all:
       "data/advanced_files/TTBarAdvancedData.h5",
       "data/advanced_files/RadionAdvancedData.h5",
       "data/advanced_files/SoftQCDAdvancedData.h5",
+      "data/graph_files/ZeroBiasGraphData.pt",
+      "data/graph_files/JetHTGraphData.pt"      
 
 rule clean:
    shell:
@@ -233,3 +235,23 @@ rule softqcd_to_advanced:
       "data/advanced_files/SoftQCDAdvancedData.h5"
    shell:
       "python3 convert_nano_to_advanced_file.py data/advanced_files/ SoftQCDAdvancedData.h5 QCD_pt_5_10_nano_1.root QCD_pt_5_10_nano_2.root QCD_pt_10_15_nano_1.root QCD_pt_10_15_nano_2.root --limit_events=64000"
+
+rule zerobias_to_graph:
+   input:
+      "nano_data2016_1-1.root",
+      "nano_data2016_1-2.root",
+      "nano_data2016_10.root",
+   output:
+      "data/graph_files/ZeroBiasGraphData.pt"
+   shell:
+      "python3 convert_nano_to_graph.py data/graph_files/ ZeroBiasGraphData nano_data2016_1-1.root nano_data2016_1-2.root nano_data2016_10.root --limit_events=64000"
+
+rule jetht_to_graph:
+   input:
+      "jet_nano_data2016_1-1.root",
+      "jet_nano_data2016_1-10.root",
+      "jet_nano_data2016_1-5.root"
+   output:
+      "data/graph_files/JetHTGraphData.pt"
+   shell:
+      "python3 convert_nano_to_graph.py data/graph_files/ JetHTGraphData jet_nano_data2016_1-1.root jet_nano_data2016_1-10.root jet_nano_data2016_1-5.root --limit_events=64000"
